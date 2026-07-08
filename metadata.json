@@ -1,0 +1,6 @@
+{
+  "name": "OCC Survey",
+  "description": "Plateforme de recherche terrain pour identifier des opportunités de startups en Afrique francophone (Observer, Comprendre, Construire).",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

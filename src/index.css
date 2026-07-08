@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "IBM Plex Serif", Georgia, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  /* Custom institutional brand colors - African Research Modernism */
+  --color-brand-primary: #1B3B32;    /* Vert Forêt Tropicale */
+  --color-brand-success: #3B7A57;    /* Vert Sauge */
+  --color-brand-accent: #D48C46;     /* Ocre Doré */
+  --color-brand-text: #121A16;       /* Charbon Profond */
+  --color-brand-bg: #FBFBFA;         /* Off-white Académique */
+  --color-brand-surface: #F4F4F1;    /* Beige Calcaire */
+  --color-brand-border: #DCDCD3;     /* Gris Chaux/Argile */
+}
+
+/* Base custom styles to reinforce high-quality look */
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-brand-bg);
+  color: var(--color-brand-text);
+  margin: 0;
+  padding: 0;
+}
+
+/* Beautiful modern scrollbar matching the academic style */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-brand-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-brand-border);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-brand-success);
+}
+
