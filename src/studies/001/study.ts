@@ -19,23 +19,18 @@ export const MODULES_001: StudyModule[] = [
   },
   {
     id: 'm3_budget',
-    title: 'Budget & Habitudes financières',
-    description: 'Comprendre les ressources financières des étudiants, leurs habitudes de dépenses, leur capacité d\'épargne et les difficultés économiques qui influencent leur quotidien.'
+    title: 'Comprendre le problème',
+    description: 'Identifier précisément la principale difficulté des étudiants, sa fréquence, leurs solutions actuelles et l\'impact de sa résolution.'
   },
   {
     id: 'm4_frictions',
-    title: 'Frictions & Difficultés majeures',
-    description: 'Comprendre les principaux blocages rencontrés par les étudiants dans leur vie académique et quotidienne : études, transport, finances, digital, accès aux services.'
+    title: 'Solutions actuelles',
+    description: 'Recueillir l\'avis des étudiants sur les améliorations prioritaires, leurs propositions de solutions et le rôle de la technologie.'
   },
   {
     id: 'm5_workarounds',
-    title: 'Contournements & Connectivité',
-    description: 'Étudier comment les étudiants s\'organisent et surmontent leurs obstacles.'
-  },
-  {
-    id: 'm6_opportunities',
-    title: 'Opportunités & Solutions d\'avenir',
-    description: 'Recueillir l\'imagination et les besoins de solutions des étudiants.'
+    title: 'Vision d\'avenir',
+    description: 'Recueillir la vision à long terme des étudiants, leur volonté d\'adopter de nouvelles solutions et d\'y contribuer.'
   }
 ];
 
