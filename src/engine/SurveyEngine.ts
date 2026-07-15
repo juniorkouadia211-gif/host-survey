@@ -47,11 +47,11 @@ export class SurveyEngine {
       contact: '',
       interviewSubmitted: false,
       submissionId: null,
-      isSubmitting: false,
-      startedAt: initialStartedAt,
-    this.state = {
-      ...initialState
-    };
+             isSubmitting: false,
+       startedAt: initialStartedAt,
+       ...initialState
+     };
+
 
     // Garantie que l'index courant reste dans les limites autorisées de la liste des questions
     if (this.study.questions.length > 0) {
