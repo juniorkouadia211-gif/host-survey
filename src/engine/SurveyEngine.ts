@@ -49,8 +49,21 @@ export class SurveyEngine {
       submissionId: null,
       isSubmitting: false,
       startedAt: initialStartedAt,
+    this.state = {
       ...initialState
     };
+
+    // Garantie que l'index courant reste dans les limites autorisées de la liste des questions
+    if (this.study.questions.length > 0) {
+      if (this.state.currentIndex >= this.study.questions.length) {
+        this.state.currentIndex = this.study.questions.length - 1;
+      }
+      if (this.state.currentIndex < 0) {
+        this.state.currentIndex = 0;
+      }
+    } else {
+      this.state.currentIndex = 0;
+    }
 
     // Initialize metrics
     this.currentQuestionStartedAt = new Date().toISOString();
@@ -118,7 +131,18 @@ export class SurveyEngine {
       const draft = localStorage.getItem(`host_survey_draft_${this.study.id}`);
       if (draft) {
         const parsed = JSON.parse(draft);
-        this.state.currentIndex = parsed.currentIndex ?? 0;
+        let restoredIndex = parsed.currentIndex ?? 0;
+        if (this.study.questions.length > 0) {
+          if (restoredIndex >= this.study.questions.length) {
+            restoredIndex = this.study.questions.length - 1;
+          }
+          if (restoredIndex < 0) {
+            restoredIndex = 0;
+          }
+        } else {
+          restoredIndex = 0;
+        }
+        this.state.currentIndex = restoredIndex;
         this.state.answers = parsed.answers ?? {};
         this.state.startedAt = parsed.startedAt ?? new Date().toISOString();
         

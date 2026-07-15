@@ -28,6 +28,7 @@ import { Study, SurveyResponse } from '../types';
 import { SurveyEngine, SurveyEngineState } from '../engine/SurveyEngine';
 import BrandEmblem from './BrandEmblem';
 
+// Extrait des lignes 31 à 62 (MODULE_METADATA mis à jour)
 const MODULE_METADATA: Record<string, { title: string; methodology: string; stat: string; citation: string }> = {
   m1_context: {
     title: "Profil Académique & Démographique",
@@ -58,12 +59,6 @@ const MODULE_METADATA: Record<string, { title: string; methodology: string; stat
     methodology: "Observe les systèmes d'entraide informels, les innovations collectives et les mécanismes d'adaptation déployés pour compenser les limites des services publics.",
     stat: "Plus de 68% des apprenants s'appuient sur des réseaux informels (partage de connexion, hébergement collectif) pour surmonter les défaillances de service.",
     citation: "« L'ingéniosité d'adaptation des étudiants subsahariens témoigne d'une résilience remarquable qu'il convient de formaliser et d'accompagner. »"
-  },
-  m6_opportunities: {
-    title: "Prospective & Solutions d'Avenir",
-    methodology: "Récolte les aspirations directes et les propositions d'innovation des usagers afin de concevoir des réponses d'intérêt général à haut impact socio-technologique.",
-    stat: "82% des répondants jugent prioritaires les solutions technologiques d'entraide (bourses, covoiturage étudiant, banques de cours mutualisées).",
-    citation: "« Consulter l'étudiant comme un concepteur de son environnement, c'est concevoir des infrastructures publiques plus justes et plus pérennes. »"
   }
 };
 
@@ -273,9 +268,13 @@ export default function Questionnaire({ survey: propSurvey, onBackToHome }: Ques
     return <div className="text-center py-10 text-brand-text/50 font-mono text-xs">Initialisation du moteur d'étude...</div>;
   }
 
+  // Extrait des lignes 270 à 277 (Sécurisation des questions inexistantes)
   const currentQuestion = engineRef.current.getCurrentQuestion();
   const currentModule = engineRef.current.getCurrentModule();
 
+  if (!currentQuestion && !engineState.isCompleted) {
+    return <div className="text-center py-10 text-brand-text/50 font-mono text-xs">Chargement de la question...</div>;
+  }
   const getMotivationalMessage = (completedModuleId: string): string => {
     switch (completedModuleId) {
       case 'm1_context':
